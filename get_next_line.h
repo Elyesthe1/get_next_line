@@ -21,7 +21,6 @@ char	*ft_strchr(char *str, int c);
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *s1, char *s2);
 int		ft_strlen(char *str);
-void	ft_bzero(void *s1, size_t n);
 char	*ft_strncpy(char *str, char *s2, char c);
 char	*ft_split(char *tab, char c);
 char	*ft_strdup(char *s);
