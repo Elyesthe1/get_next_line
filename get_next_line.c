@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erahal <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: erahal <erahal@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 14:12:22 by erahal            #+#    #+#             */
-/*   Updated: 2024/05/10 18:11:19 by erahal           ###   ########.fr       */
+/*   Updated: 2025/01/29 18:15:28 by erahal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,19 +69,20 @@ int	ft_free(char *s)
 
 char	*get_next_line(int fd)
 {
-	char		tab[BUFFER_SIZE + 1];
+	char		*tab;
 	static char	after[BUFFER_SIZE + 1];
 	int			status;
 	char		*temp;
 
 	if (fd < 0 || fd > 256 || BUFFER_SIZE <= 0)
 		return (NULL);
+	tab = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	temp = ft_strdup(after);
-	ft_bzero(after, BUFFER_SIZE + 1);
+	after[0] = '\0';
 	while (ft_strchr(temp, '\n') == NULL)
 	{
 		status = read(fd, tab, BUFFER_SIZE);
-		if (status < 0 && ft_free(temp))
+		if (status < 0 && ft_free(temp) && ft_free(tab))
 			return (NULL);
 		if (status == 0)
 			break ;
@@ -90,7 +91,7 @@ char	*get_next_line(int fd)
 	}
 	ft_strncpy(after, temp, '\n');
 	temp = ft_split(temp, '\n');
-	if (ft_strlen(temp) == 0 && ft_free(temp))
+	if ( ft_free(tab) && ft_strlen(temp) == 0 && ft_free(temp))
 		return (NULL);
 	return (temp);
 }

@@ -3,26 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erahal <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: erahal <erahal@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 23:05:20 by erahal            #+#    #+#             */
-/*   Updated: 2024/05/10 13:52:02 by erahal           ###   ########.fr       */
+/*   Updated: 2025/01/29 18:11:31 by erahal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-void	ft_bzero(void *s1, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < n)
-	{
-		((char *)s1)[i] = '\0';
-		i++;
-	}
-}
 
 char	*ft_strcpyv2(char *s1, char *s2, char *s3)
 {
